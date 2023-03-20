@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import java.util.List;
 import java.util.Map;
 
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 @Data
 public class MyXMLBean {
 
@@ -14,5 +14,13 @@ public class MyXMLBean {
     private final List<Object> args;
     private final Map<String, Object> properties;
 
+    private MyXMLBean(String name, List<Object> args, Map<String, Object> properties) {
+        this.name = name;
+        this.args = args;
+        this.properties = properties;
+    }
 
+    public static MyXMLBean of(String name, List<Object> args, Map<String, Object> properties) {
+        return new MyXMLBean(name, args, properties);
+    }
 }

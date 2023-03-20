@@ -14,5 +14,4 @@ public class Spring5Application {
         System.out.println(myXMLBean);
 
     }
-
 }

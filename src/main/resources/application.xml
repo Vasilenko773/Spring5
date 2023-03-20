@@ -3,7 +3,9 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="myXMLBean" class="com.example.spring5.domain.MyXMLBean">
+    <bean id="driver" class="com.example.spring5.domain.Driver"/>
+
+    <bean id="myXMLBean" class="com.example.spring5.domain.MyXMLBean" factory-method="of">
         <!--STRING-->
         <constructor-arg value="firstBean"/>
         <!--LIST-->
@@ -11,6 +13,7 @@
             <list>
                 <value type="java.lang.Object">v</value>
                 <value type="java.lang.Object">v1</value>
+                <ref bean="driver"/>
             </list>
         </constructor-arg>
         <!--MAP-->
@@ -18,6 +21,7 @@
             <map>
                 <entry key="url" value="myxmlbeanurl"/>
                 <entry key="isSingleTon" value="true"/>
+                <entry key="dricer" value-ref="driver"/>
             </map>
         </constructor-arg>
     </bean>
