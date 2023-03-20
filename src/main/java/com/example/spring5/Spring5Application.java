@@ -13,5 +13,7 @@ public class Spring5Application {
         MyXMLBean myXMLBean =  context.getBean("myXMLBean", MyXMLBean.class);
         System.out.println(myXMLBean);
 
+        MyXMLBean myXMLBean1 =  context.getBean("myXMLBean1", MyXMLBean.class);
+        System.out.println(myXMLBean1);
     }
 }

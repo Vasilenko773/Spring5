@@ -26,5 +26,34 @@
         </constructor-arg>
     </bean>
 
+    <bean id="myXMLBean1" class="com.example.spring5.domain.MyXMLBean">
+        <!--STRING-->
+        <constructor-arg value="firstBean1" type="java.lang.String"/>
+        <!--LIST-->
+        <constructor-arg name="args" type="java.util.List">
+            <list>
+                <value type="java.lang.Object">v</value>
+                <value type="java.lang.Object">v1</value>
+                <ref bean="driver"/>
+            </list>
+        </constructor-arg>
+        <!--MAP-->
+        <constructor-arg>
+            <map>
+                <entry key="url" value-ref="driver"/>
+                <entry key="isSingleTon" value="true" value-type="java.lang.Boolean"/>
+                <entry key="xmlBean" value-ref="myXMLBean"/>
+            </map>
+        </constructor-arg>
+        <property name="args" >
+            <list>
+                <value type="java.lang.Object">v</value>
+                <value type="java.lang.Object">v1</value>
+                <ref bean="myXMLBean"/>
+            </list>
+
+        </property>
+    </bean>
+
 
 </beans>
