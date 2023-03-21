@@ -26,7 +26,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="myXMLBean1" class="com.example.spring5.domain.MyXMLBean" scope="singleton" init-method="init">
+    <bean id="myXMLBean1" class="com.example.spring5.domain.MyXMLBean" scope="singleton" init-method="init" destroy-method="destroy">
         <!--STRING-->
         <constructor-arg value="firstBean1" type="java.lang.String"/>
         <!--LIST-->

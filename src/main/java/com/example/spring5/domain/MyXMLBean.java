@@ -27,4 +27,8 @@ public class MyXMLBean {
     private void init() {
         System.out.println("Инициализация MyXMLBean: method init()");
     }
+
+    private void destroy() {
+        System.out.println("Вызов destroy() method при закрытии application context");
+    }
 }
