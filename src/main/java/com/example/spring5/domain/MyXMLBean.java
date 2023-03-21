@@ -1,7 +1,6 @@
 package com.example.spring5.domain;
 
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Map;
@@ -25,4 +24,7 @@ public class MyXMLBean {
     }
 
 
+    private void init() {
+        System.out.println("Инициализация MyXMLBean: method init()");
+    }
 }
