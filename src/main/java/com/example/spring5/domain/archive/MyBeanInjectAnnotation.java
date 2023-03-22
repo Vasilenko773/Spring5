@@ -1,6 +1,6 @@
 package com.example.spring5.domain.archive;
 
-import com.example.spring5.domain.InjectBean;
+import com.example.spring5.annotation.InjectBean;
 import com.example.spring5.domain.repository.ConnectionPool;
 import lombok.Data;
 

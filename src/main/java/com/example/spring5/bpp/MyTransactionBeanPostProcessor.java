@@ -1,10 +1,9 @@
-package com.example.spring5.bfpp;
+package com.example.spring5.bpp;
 
-import com.example.spring5.domain.MyTransaction;
+import com.example.spring5.annotation.MyTransaction;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
-import java.beans.Transient;
 import java.lang.reflect.Proxy;
 import java.util.HashMap;
 import java.util.Map;

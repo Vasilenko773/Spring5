@@ -1,7 +1,7 @@
-package com.example.spring5.bfpp;
+package com.example.spring5.bpp;
 
 
-import com.example.spring5.domain.InjectBean;
+import com.example.spring5.annotation.InjectBean;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.context.ApplicationContext;

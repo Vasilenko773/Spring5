@@ -12,8 +12,9 @@
 
     <bean class="com.example.spring5.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="com.example.spring5.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
-    <bean class="com.example.spring5.bfpp.InjectBeanPostProcessor"/>
-    <bean class="com.example.spring5.bfpp.MyTransactionBeanPostProcessor"/>
+    <bean class="com.example.spring5.bpp.InjectBeanPostProcessor"/>
+    <bean class="com.example.spring5.bpp.MyTransactionBeanPostProcessor"/>
+    <bean class="com.example.spring5.bpp.AuditingBeanPostProcessor"/>
 
     <bean id="connectionPool" class="com.example.spring5.domain.repository.ConnectionPool">
         <constructor-arg value="${my.connection.pool.url}"/>

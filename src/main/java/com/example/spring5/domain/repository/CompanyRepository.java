@@ -1,13 +1,15 @@
 package com.example.spring5.domain.repository;
 
-import com.example.spring5.domain.InjectBean;
-import com.example.spring5.domain.MyTransaction;
+import com.example.spring5.annotation.Auditing;
+import com.example.spring5.annotation.InjectBean;
+import com.example.spring5.annotation.MyTransaction;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 
 import java.util.Optional;
 
 @MyTransaction
+@Auditing
 @Data
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
@@ -21,7 +23,7 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     @Override
     public Optional<Company> findById(Integer id) {
-        System.out.println("findById");
+        System.out.println("findById method()");
         return Optional.of(new Company(id));
     }
 
