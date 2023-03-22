@@ -8,6 +8,7 @@
         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <context:property-placeholder location="application.properties"/>
+    <context:annotation-config/>
 
     <bean id="driver" class="com.example.spring5.domain.Driver">
         <constructor-arg value="${my.lacation}"/>
@@ -15,6 +16,8 @@
 
     <bean class="com.example.spring5.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="com.example.spring5.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
+
+<!--    <bean class="org.springframework.context.annotation.CommonAnnotationBeanPostProcessor"/>-->
 
     <bean id="myXMLBean" class="com.example.spring5.domain.MyXMLBean" factory-method="of">
         <!--STRING-->
@@ -38,7 +41,7 @@
         </constructor-arg>
     </bean>
 
-    <bean id="myXMLBean1" class="com.example.spring5.domain.MyXMLBean" scope="singleton" init-method="init" destroy-method="destroy">
+    <bean id="myXMLBean1" class="com.example.spring5.domain.MyXMLBean">
         <!--STRING-->
         <constructor-arg value="firstBean1" type="java.lang.String"/>
         <!--LIST-->

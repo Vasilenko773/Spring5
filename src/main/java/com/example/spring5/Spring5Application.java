@@ -1,6 +1,7 @@
 package com.example.spring5;
 
 import com.example.spring5.domain.MyXMLBean;
+import org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -13,7 +14,5 @@ public class Spring5Application {
             MyXMLBean myXMLBean = context.getBean("myXMLBean", MyXMLBean.class);
             System.out.println(myXMLBean);
         }
-
-
     }
 }
