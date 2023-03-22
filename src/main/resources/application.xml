@@ -13,6 +13,9 @@
         <constructor-arg value="${my.lacation}"/>
     </bean>
 
+    <bean class="com.example.spring5.bfpp.LogBeanFactoryPostProcessor"/>
+    <bean class="com.example.spring5.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
+
     <bean id="myXMLBean" class="com.example.spring5.domain.MyXMLBean" factory-method="of">
         <!--STRING-->
         <constructor-arg value="${my.lacation}"/>
