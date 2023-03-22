@@ -9,7 +9,9 @@
 
     <context:property-placeholder location="application.properties"/>
 
-    <bean id="driver" class="java.lang.String"/>
+    <bean id="driver" class="com.example.spring5.domain.Driver">
+        <constructor-arg value="${my.lacation}"/>
+    </bean>
 
     <bean id="myXMLBean" class="com.example.spring5.domain.MyXMLBean" factory-method="of">
         <!--STRING-->
@@ -28,7 +30,7 @@
                 <entry key="url" value="myxmlbeanurl"/>
                 <entry key="isSingleTon" value="true"/>
                 <entry key="author" value="#{systemProperties['user.name']}"/>
-                <entry key="array" value="#{driver.toCharArray()}"/>
+                <entry key="array" value="#{driver.name}"/>
             </map>
         </constructor-arg>
     </bean>
