@@ -13,22 +13,25 @@
     <bean class="com.example.spring5.bfpp.LogBeanFactoryPostProcessor"/>
     <bean class="com.example.spring5.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
     <bean class="com.example.spring5.bfpp.InjectBeanPostProcessor"/>
+    <bean class="com.example.spring5.bfpp.MyTransactionBeanPostProcessor"/>
 
-    <bean id="driver" class="com.example.spring5.domain.Driver">
-        <constructor-arg value="${my.lacation}"/>
+    <bean id="connectionPool" class="com.example.spring5.domain.repository.ConnectionPool">
+        <constructor-arg value="${my.connection.pool.url}"/>
+        <constructor-arg value="${my.connection.pool.username}"/>
+        <constructor-arg value="${my.connection.pool.password}"/>
     </bean>
 
-    <bean id="myBeanInjectAnnotation" class="com.example.spring5.domain.MyBeanInjectAnnotation"/>
+    <bean id="companyRepository" class="com.example.spring5.domain.repository.CompanyRepository"/>
 
-    <bean id="myXMLBean" class="com.example.spring5.domain.MyXMLBean" factory-method="of">
+    <bean id="myXMLBean" class="com.example.spring5.domain.archive.MyXMLBean" factory-method="of">
         <!--STRING-->
-        <constructor-arg value="${my.lacation}"/>
+        <constructor-arg value="hello world"/>
         <!--LIST-->
         <constructor-arg>
             <list>
                 <value type="java.lang.Object">v1</value>
                 <value type="java.lang.Object">v1</value>
-                <ref bean="driver"/>
+                <ref bean="connectionPool"/>
             </list>
         </constructor-arg>
         <!--MAP-->
@@ -37,7 +40,7 @@
                 <entry key="url" value="myxmlbeanurl"/>
                 <entry key="isSingleTon" value="true"/>
                 <entry key="author" value="#{systemProperties['user.name']}"/>
-                <entry key="array" value="#{driver.name}"/>
+                <entry key="array" value="#{connectionPool.url}"/>
             </map>
         </constructor-arg>
     </bean>

@@ -1,13 +1,11 @@
-package com.example.spring5.domain;
+package com.example.spring5.domain.archive;
 
-import jakarta.annotation.PostConstruct;
-import jakarta.annotation.PreDestroy;
 import lombok.Data;
 
 import java.util.List;
 import java.util.Map;
 
-//@RequiredArgsConstructor
+
 @Data
 public class MyXMLBean {
 
@@ -26,13 +24,13 @@ public class MyXMLBean {
     }
 
 
-    @PostConstruct
-    private void init() {
-        System.out.println("Инициализация MyXMLBean: method init()");
-    }
-
-    @PreDestroy
-    private void destroy() {
-        System.out.println("Вызов destroy() method при закрытии application context");
-    }
+//    @PostConstruct
+//    private void init() {
+//        System.out.println("Инициализация MyXMLBean: method init()");
+//    }
+//
+//    @PreDestroy
+//    private void destroy() {
+//        System.out.println("Вызов destroy() method при закрытии application context");
+//    }
 }
