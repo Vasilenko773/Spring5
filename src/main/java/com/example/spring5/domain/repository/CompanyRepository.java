@@ -4,7 +4,9 @@ import com.example.spring5.annotation.Auditing;
 import com.example.spring5.annotation.InjectBean;
 import com.example.spring5.annotation.MyTransaction;
 import jakarta.annotation.PostConstruct;
+import jakarta.annotation.Resource;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
@@ -13,8 +15,8 @@ import java.util.Optional;
 @Data
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-    @InjectBean
-    private ConnectionPool connectionPool;
+    @Autowired
+    private ConnectionPool pool;
 
     @PostConstruct
     private void init() {

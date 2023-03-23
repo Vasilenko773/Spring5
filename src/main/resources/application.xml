@@ -16,6 +16,12 @@
     <bean class="com.example.spring5.bpp.MyTransactionBeanPostProcessor"/>
     <bean class="com.example.spring5.bpp.AuditingBeanPostProcessor"/>
 
+    <bean id="pool" class="com.example.spring5.domain.repository.ConnectionPool">
+        <constructor-arg value="${my.connection.pool.url}"/>
+        <constructor-arg value="${my.connection.pool.username}"/>
+        <constructor-arg value="${my.connection.pool.password}"/>
+    </bean>
+
     <bean id="connectionPool" class="com.example.spring5.domain.repository.ConnectionPool">
         <constructor-arg value="${my.connection.pool.url}"/>
         <constructor-arg value="${my.connection.pool.username}"/>
@@ -32,7 +38,7 @@
             <list>
                 <value type="java.lang.Object">v1</value>
                 <value type="java.lang.Object">v1</value>
-                <ref bean="connectionPool"/>
+                <ref bean="pool"/>
             </list>
         </constructor-arg>
         <!--MAP-->
@@ -41,7 +47,7 @@
                 <entry key="url" value="myxmlbeanurl"/>
                 <entry key="isSingleTon" value="true"/>
                 <entry key="author" value="#{systemProperties['user.name']}"/>
-                <entry key="array" value="#{connectionPool.url}"/>
+                <entry key="array" value="#{pool.url}"/>
             </map>
         </constructor-arg>
     </bean>
