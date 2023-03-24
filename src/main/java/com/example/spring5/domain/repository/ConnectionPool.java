@@ -1,13 +1,38 @@
 package com.example.spring5.domain.repository;
 
-import lombok.AllArgsConstructor;
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import lombok.Data;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 @Data
-@AllArgsConstructor
 public class ConnectionPool {
 
-    private String url;
-    private String username;
-    private String password;
+    private final  String url;
+    private final  String username;
+    private final  String password;
+
+    public ConnectionPool(@Value("${my.connection.pool.url}") String url,
+                          @Value("${my.connection.pool.username}") String username,
+                          @Value("${my.connection.pool.password}") String password) {
+        this.url = url;
+        this.username = username;
+        this.password = password;
+    }
+
+
+
+    @PostConstruct
+    private void init() {
+        System.out.println("#########");
+        System.out.println("ConnectionPool init() method");
+    }
+
+    @PreDestroy
+    private void destroy() {
+        System.out.println("--------");
+        System.out.println("ConnectionPool destroy() method");
+    }
 }

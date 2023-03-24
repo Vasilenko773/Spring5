@@ -1,22 +1,22 @@
 package com.example.spring5.domain.repository;
 
 import com.example.spring5.annotation.Auditing;
-import com.example.spring5.annotation.InjectBean;
 import com.example.spring5.annotation.MyTransaction;
 import jakarta.annotation.PostConstruct;
-import jakarta.annotation.Resource;
 import lombok.Data;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Repository
 @MyTransaction
 @Auditing
+@RequiredArgsConstructor
 @Data
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
-    @Autowired
-    private ConnectionPool pool;
+    private final ConnectionPool pool;
 
     @PostConstruct
     private void init() {

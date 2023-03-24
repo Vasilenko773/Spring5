@@ -1,6 +1,6 @@
 package com.example.spring5;
 
-import com.example.spring5.domain.repository.CrudRepository;
+import com.example.spring5.domain.repository.CompanyService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -10,8 +10,8 @@ public class Spring5Application {
     public static void main(String[] args) {
 
         try (var context = new ClassPathXmlApplicationContext("application.xml")) {
-            var companyRepository = context.getBean("companyRepository", CrudRepository.class);
-            System.out.println(companyRepository.findById(1).orElse("Empty"));
+            var companyService = context.getBean("companyService", CompanyService.class);
+            System.out.println(companyService.findById(2));
         }
     }
 }

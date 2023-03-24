@@ -8,48 +8,17 @@
         http://www.springframework.org/schema/context/spring-context-4.0.xsd">
 
     <context:property-placeholder location="application.properties"/>
-    <context:annotation-config/>
 
-    <bean class="com.example.spring5.bfpp.LogBeanFactoryPostProcessor"/>
-    <bean class="com.example.spring5.bfpp.VerifyPropertyBeanFactoryPostProcessor"/>
-    <bean class="com.example.spring5.bpp.InjectBeanPostProcessor"/>
-    <bean class="com.example.spring5.bpp.MyTransactionBeanPostProcessor"/>
-    <bean class="com.example.spring5.bpp.AuditingBeanPostProcessor"/>
+    <context:component-scan base-package="com.example.spring5"/>
 
-    <bean id="pool" class="com.example.spring5.domain.repository.ConnectionPool">
-        <constructor-arg value="${my.connection.pool.url}"/>
-        <constructor-arg value="${my.connection.pool.username}"/>
-        <constructor-arg value="${my.connection.pool.password}"/>
-    </bean>
 
-    <bean id="connectionPool" class="com.example.spring5.domain.repository.ConnectionPool">
-        <constructor-arg value="${my.connection.pool.url}"/>
-        <constructor-arg value="${my.connection.pool.username}"/>
-        <constructor-arg value="${my.connection.pool.password}"/>
-    </bean>
+
+<!--    <bean id="pool" class="com.example.spring5.domain.repository.ConnectionPool">-->
+<!--        <constructor-arg value="${my.connection.pool.url}"/>-->
+<!--        <constructor-arg value="${my.connection.pool.username}"/>-->
+<!--        <constructor-arg value="${my.connection.pool.password}"/>-->
+<!--    </bean>-->
 
     <bean id="companyRepository" class="com.example.spring5.domain.repository.CompanyRepository"/>
-
-    <bean id="myXMLBean" class="com.example.spring5.domain.archive.MyXMLBean" factory-method="of">
-        <!--STRING-->
-        <constructor-arg value="hello world"/>
-        <!--LIST-->
-        <constructor-arg>
-            <list>
-                <value type="java.lang.Object">v1</value>
-                <value type="java.lang.Object">v1</value>
-                <ref bean="pool"/>
-            </list>
-        </constructor-arg>
-        <!--MAP-->
-        <constructor-arg>
-            <map>
-                <entry key="url" value="myxmlbeanurl"/>
-                <entry key="isSingleTon" value="true"/>
-                <entry key="author" value="#{systemProperties['user.name']}"/>
-                <entry key="array" value="#{pool.url}"/>
-            </map>
-        </constructor-arg>
-    </bean>
 
 </beans>
