@@ -1,4 +1,4 @@
-package com.example.spring5.domain.repository;
+package com.example.spring5.core.repository;
 
 import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;

@@ -1,13 +1,13 @@
-package com.example.spring5.config;
+package com.example.spring5.core.config;
 
-import com.example.spring5.domain.repository.CrudRepository;
-import org.springframework.context.annotation.ComponentScan;
+import com.example.spring5.core.repository.CrudRepository;
+import com.example.spring5.web.config.WebConfiguration;
+import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.FilterType;
-import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+//@ImportResource("classpath:application.xml")
+@Import(WebConfiguration.class)
 @Configuration
 @PropertySource("classpath:application.properties")
 @ComponentScan(basePackages = "com.example.spring5",

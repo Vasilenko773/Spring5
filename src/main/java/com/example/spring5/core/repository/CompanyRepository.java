@@ -1,7 +1,7 @@
-package com.example.spring5.domain.repository;
+package com.example.spring5.core.repository;
 
-import com.example.spring5.annotation.Auditing;
-import com.example.spring5.annotation.MyTransaction;
+import com.example.spring5.core.annotation.MyTransaction;
+import com.example.spring5.core.annotation.Auditing;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;

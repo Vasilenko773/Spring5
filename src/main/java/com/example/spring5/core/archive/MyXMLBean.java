@@ -1,4 +1,4 @@
-package com.example.spring5.domain.archive;
+package com.example.spring5.core.archive;
 
 import lombok.Data;
 

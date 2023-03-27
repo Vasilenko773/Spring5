@@ -1,6 +1,6 @@
-package com.example.spring5.bpp;
+package com.example.spring5.core.bpp;
 
-import com.example.spring5.annotation.MyTransaction;
+import com.example.spring5.core.annotation.MyTransaction;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;

@@ -1,4 +1,4 @@
-package com.example.spring5.annotation;
+package com.example.spring5.core.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,4 +1,4 @@
-package com.example.spring5.domain.repository;
+package com.example.spring5.core.repository;
 
 import java.util.Optional;
 
