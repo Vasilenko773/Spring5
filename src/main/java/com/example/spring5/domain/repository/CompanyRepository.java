@@ -5,10 +5,13 @@ import com.example.spring5.annotation.MyTransaction;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
+@Scope(BeanDefinition.SCOPE_SINGLETON)
 @Repository
 @MyTransaction
 @Auditing
