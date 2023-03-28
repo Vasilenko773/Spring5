@@ -5,6 +5,7 @@ import com.example.spring5.core.annotation.Auditing;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
@@ -15,11 +16,14 @@ import java.util.Optional;
 @Repository
 @MyTransaction
 @Auditing
-@RequiredArgsConstructor
 @Data
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     private final ConnectionPool pool;
+
+    public CompanyRepository(@Qualifier("pool2") ConnectionPool pool) {
+        this.pool = pool;
+    }
 
     @PostConstruct
     private void init() {
