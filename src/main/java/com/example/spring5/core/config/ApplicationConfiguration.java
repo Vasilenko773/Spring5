@@ -22,16 +22,19 @@ public class ApplicationConfiguration {
 
 
     @Bean
+    @Profile("prod")
     public ConnectionPool pool2() {
         return new ConnectionPool("2-url", "secondName", "password");
     }
 
     @Bean
+    @Profile("web")
     public ConnectionPool pool3() {
         return new ConnectionPool("3-url", "thirdName", "password3");
     }
 
     @Bean
+    @Profile("web")
     public CompanyRepository company2() {
         ConnectionPool connectionPool = pool3();
         ConnectionPool connectionPool1 = pool3();

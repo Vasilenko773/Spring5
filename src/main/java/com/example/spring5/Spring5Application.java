@@ -9,8 +9,13 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 public class Spring5Application {
 
     public static void main(String[] args) {
-        var context = new AnnotationConfigApplicationContext(ApplicationConfiguration.class);
-            var companyService = context.getBean("companyService", CompanyService.class);
-            System.out.println(companyService.findById(2));
-        }
+        var context = new AnnotationConfigApplicationContext();
+
+        context.register(ApplicationConfiguration.class);
+        context.getEnvironment().setActiveProfiles("prod");
+        context.refresh();
+        var companyService = context.getBean("companyService", CompanyService.class);
+        System.out.println(companyService.findById(2));
+
     }
+}
