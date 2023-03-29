@@ -1,5 +1,6 @@
-package com.example.spring5.core.repository;
+package com.example.spring5.core.company;
 
+import com.example.spring5.core.company.dto.CompanyReadDto;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -13,10 +14,9 @@ public class CompanyService {
         this.companyRepository = companyRepository;
     }
 
-    public Optional<Company> findById(Integer id) {
-       return companyRepository.findById(id);
+    public Optional<CompanyReadDto> findById(Integer id) {
+       return companyRepository.findById(id).map(company -> new CompanyReadDto(company.id()));
     }
-
 
     public void delete(Company entity) {
        companyRepository.delete(entity);

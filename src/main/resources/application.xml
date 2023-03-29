@@ -19,6 +19,6 @@
 <!--        <constructor-arg value="${my.connection.pool.password}"/>-->
 <!--    </bean>-->
 
-    <bean id="companyRepository" class="com.example.spring5.core.repository.CompanyRepository"/>
+    <bean id="companyRepository" class="com.example.spring5.core.company.CompanyRepository"/>
 
 </beans>

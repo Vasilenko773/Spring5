@@ -1,8 +1,8 @@
 package com.example.spring5.core.config;
 
-import com.example.spring5.core.repository.CompanyRepository;
-import com.example.spring5.core.repository.ConnectionPool;
-import com.example.spring5.core.repository.CrudRepository;
+import com.example.spring5.core.company.CompanyRepository;
+import com.example.spring5.core.company.ConnectionPool;
+import com.example.spring5.core.company.CrudRepository;
 import com.example.spring5.web.config.WebConfiguration;
 import org.springframework.context.annotation.*;
 import org.springframework.context.annotation.ComponentScan.Filter;

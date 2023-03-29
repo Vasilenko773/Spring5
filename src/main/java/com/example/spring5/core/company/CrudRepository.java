@@ -1,4 +1,4 @@
-package com.example.spring5.core.repository;
+package com.example.spring5.core.company;
 
 import java.util.Optional;
 

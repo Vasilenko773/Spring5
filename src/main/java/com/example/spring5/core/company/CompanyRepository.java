@@ -1,10 +1,9 @@
-package com.example.spring5.core.repository;
+package com.example.spring5.core.company;
 
 import com.example.spring5.core.annotation.MyTransaction;
 import com.example.spring5.core.annotation.Auditing;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;

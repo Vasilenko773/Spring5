@@ -1,7 +1,7 @@
 package com.example.spring5;
 
 import com.example.spring5.core.config.ApplicationConfiguration;
-import com.example.spring5.core.repository.CompanyService;
+import com.example.spring5.core.company.CompanyService;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
