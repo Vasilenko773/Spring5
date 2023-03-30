@@ -9,9 +9,7 @@ import org.springframework.context.annotation.*;
 @Configuration()
 public class ApplicationConfiguration {
 
-
     @Bean
-    @Profile("prod")
     public ConnectionPool pool2() {
         return new ConnectionPool("2-url", "secondName", "password");
     }

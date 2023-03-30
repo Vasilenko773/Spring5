@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 @Conditional({JpaCondition.class})
 @Configuration
 public class JPAConfiguration {
-
     @PostConstruct
     public void init() {
         System.out.println("");

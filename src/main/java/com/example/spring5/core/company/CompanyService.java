@@ -5,7 +5,6 @@ import com.example.spring5.core.lisner.entity.AccessType;
 import com.example.spring5.core.lisner.entity.EntityEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.context.ApplicationEventPublisherAware;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
@@ -16,7 +15,6 @@ public class CompanyService {
 
     private final CrudRepository<Integer, Company> companyRepository;
     private final ApplicationEventPublisher eventPublisher;
-
 
 
     public Optional<CompanyReadDto> findById(Integer id) {
