@@ -20,13 +20,12 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     private final ConnectionPool pool;
 
-    public CompanyRepository(@Qualifier("pool2") ConnectionPool pool) {
+    public CompanyRepository(@Qualifier("connectionPool") ConnectionPool pool) {
         this.pool = pool;
     }
 
     @PostConstruct
     private void init() {
-        System.out.println("init company repository");
     }
 
     @Override
@@ -38,6 +37,5 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
     @Override
     public void delete(Company entity) {
         System.out.println("delete");
-
     }
 }

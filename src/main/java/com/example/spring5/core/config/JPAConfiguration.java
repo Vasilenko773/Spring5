@@ -11,6 +11,10 @@ public class JPAConfiguration {
 
     @PostConstruct
     public void init() {
-        System.out.println("Jpa configuration is enable");
+        System.out.println("");
+        System.out.println("#########");
+        System.out.println("com.example.spring5.core.config.JPAConfiguration init()");
+        System.out.println("#########");
+        System.out.println("");
     }
 }

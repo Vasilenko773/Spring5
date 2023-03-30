@@ -26,13 +26,9 @@ public class ConnectionPool {
 
     @PostConstruct
     private void init() {
-        System.out.println("#########");
-        System.out.println("ConnectionPool init() method");
     }
 
     @PreDestroy
     private void destroy() {
-        System.out.println("--------");
-        System.out.println("ConnectionPool destroy() method");
     }
 }
