@@ -12,6 +12,5 @@ public class Spring5Application {
         ConfigurableApplicationContext run = SpringApplication.run(Spring5Application.class, args);
         System.out.println(run.getBean("pool2", ConnectionPool.class));
         System.out.println(run.getBean("connectionPool", ConnectionPool.class));
-
     }
 }

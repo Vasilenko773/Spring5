@@ -1,0 +1,10 @@
+my:
+  connection:
+    pool:
+      url: dburl
+      username: dbusername
+      password: dbpassword
+
+#spring:
+#  profiles:
+#    active: qa
