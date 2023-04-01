@@ -5,6 +5,7 @@ import com.example.spring5.core.annotation.Auditing;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
@@ -18,6 +19,7 @@ import java.util.Optional;
 @Auditing
 @Data
 @RequiredArgsConstructor
+@Slf4j
 public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     private final ConnectionPool connectionPool;
@@ -28,12 +30,12 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
 
     @Override
     public Optional<Company> findById(Integer id) {
-        System.out.println("findById method()");
+        log.info("findById method()");
         return Optional.of(new Company(id));
     }
 
     @Override
     public void delete(Company entity) {
-        System.out.println("delete");
+        log.info("delete");
     }
 }
