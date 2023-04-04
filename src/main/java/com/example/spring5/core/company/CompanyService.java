@@ -3,6 +3,7 @@ package com.example.spring5.core.company;
 import com.example.spring5.core.company.dto.CompanyReadDto;
 import com.example.spring5.core.lisner.entity.AccessType;
 import com.example.spring5.core.lisner.entity.EntityEvent;
+import com.example.spring5.core.repository.CrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;

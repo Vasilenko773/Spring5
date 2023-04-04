@@ -2,11 +2,11 @@ package com.example.spring5.core.company;
 
 import com.example.spring5.core.annotation.MyTransaction;
 import com.example.spring5.core.annotation.Auditing;
+import com.example.spring5.core.repository.CrudRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;

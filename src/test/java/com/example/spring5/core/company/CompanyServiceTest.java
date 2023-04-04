@@ -2,6 +2,7 @@ package com.example.spring5.core.company;
 
 import com.example.spring5.core.company.dto.CompanyReadDto;
 import com.example.spring5.core.lisner.entity.EntityEvent;
+import com.example.spring5.core.repository.CrudRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
