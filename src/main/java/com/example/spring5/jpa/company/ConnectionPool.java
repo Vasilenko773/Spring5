@@ -1,4 +1,4 @@
-package com.example.spring5.core.company;
+package com.example.spring5.jpa.company;
 
 import lombok.ToString;
 import org.springframework.beans.factory.annotation.Value;

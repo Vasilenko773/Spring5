@@ -1,6 +1,6 @@
 package com.example.spring5.integration.user;
 
-import com.example.spring5.core.user.UserService;
+import com.example.spring5.jpa.user.UserService;
 import com.example.spring5.integration.annotation.IT;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

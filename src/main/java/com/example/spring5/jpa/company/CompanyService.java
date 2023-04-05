@@ -1,9 +1,9 @@
-package com.example.spring5.core.company;
+package com.example.spring5.jpa.company;
 
-import com.example.spring5.core.company.dto.CompanyReadDto;
+import com.example.spring5.jpa.company.dto.CompanyReadDto;
 import com.example.spring5.core.lisner.entity.AccessType;
 import com.example.spring5.core.lisner.entity.EntityEvent;
-import com.example.spring5.core.repository.CrudRepository;
+import com.example.spring5.jpa.repository.CrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
@@ -21,7 +21,7 @@ public class CompanyService {
     public Optional<CompanyReadDto> findById(Integer id) {
        return companyRepository.findById(id).map(company -> {
            eventPublisher.publishEvent(new EntityEvent(company, AccessType.READ));
-           return new CompanyReadDto(company.id());
+           return new CompanyReadDto(company.getId());
        });
 
     }

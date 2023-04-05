@@ -1,7 +1,7 @@
 package com.example.spring5.core.config;
 
-import com.example.spring5.core.company.CompanyRepository;
-import com.example.spring5.core.company.ConnectionPool;
+import com.example.spring5.jpa.company.CompanyRepository;
+import com.example.spring5.jpa.company.ConnectionPool;
 import com.example.spring5.web.config.WebConfiguration;
 import org.springframework.context.annotation.*;
 

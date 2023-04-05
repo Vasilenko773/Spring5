@@ -1,8 +1,10 @@
 package com.example.spring5.core.company;
 
-import com.example.spring5.core.company.dto.CompanyReadDto;
+import com.example.spring5.jpa.company.Company;
+import com.example.spring5.jpa.company.CompanyService;
+import com.example.spring5.jpa.company.dto.CompanyReadDto;
 import com.example.spring5.core.lisner.entity.EntityEvent;
-import com.example.spring5.core.repository.CrudRepository;
+import com.example.spring5.jpa.repository.CrudRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -11,6 +13,7 @@ import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -31,7 +34,7 @@ class CompanyServiceTest {
 
     @Test
     void findById() {
-        Mockito.doReturn(Optional.of(new Company(COMPANY_ID)))
+        Mockito.doReturn(Optional.of(new Company(COMPANY_ID, "", new HashMap<>())))
                 .when(companyRepository).findById(COMPANY_ID);
 
         Optional<CompanyReadDto> byId = companyService.findById(COMPANY_ID);

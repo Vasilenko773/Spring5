@@ -1,4 +1,4 @@
-package com.example.spring5.core.user;
+package com.example.spring5.jpa.user;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

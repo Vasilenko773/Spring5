@@ -1,7 +1,7 @@
 package com.example.spring5.integration.company;
 
-import com.example.spring5.core.company.CompanyService;
-import com.example.spring5.core.company.dto.CompanyReadDto;
+import com.example.spring5.jpa.company.CompanyService;
+import com.example.spring5.jpa.company.dto.CompanyReadDto;
 import com.example.spring5.integration.annotation.IT;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

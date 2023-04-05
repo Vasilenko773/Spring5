@@ -1,8 +1,8 @@
-package com.example.spring5.core.company;
+package com.example.spring5.jpa.company;
 
 import com.example.spring5.core.annotation.MyTransaction;
 import com.example.spring5.core.annotation.Auditing;
-import com.example.spring5.core.repository.CrudRepository;
+import com.example.spring5.jpa.repository.CrudRepository;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +11,7 @@ import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.Optional;
 
 @Scope(BeanDefinition.SCOPE_SINGLETON)
@@ -31,7 +32,7 @@ public class CompanyRepository implements CrudRepository<Integer, Company> {
     @Override
     public Optional<Company> findById(Integer id) {
         log.info("findById method()");
-        return Optional.of(new Company(id));
+        return Optional.of(new Company(id, "", new HashMap<>()));
     }
 
     @Override
