@@ -26,6 +26,17 @@ db:
     second: 567
     third.value: Third
 
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+
 
 #spring:
 #  profiles:

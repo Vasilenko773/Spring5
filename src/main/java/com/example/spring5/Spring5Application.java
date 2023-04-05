@@ -13,5 +13,6 @@ public class Spring5Application {
     public static void main(String[] args) {
         ConfigurableApplicationContext run = SpringApplication.run(Spring5Application.class, args);
         System.out.println(run.getBean("db-com.example.spring5.core.config.DatabaseProperties",DatabaseProperties.class));
+
     }
 }
