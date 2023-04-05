@@ -12,6 +12,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
+
 public class CompanyService {
 
     private final CrudRepository<Integer, Company> companyRepository;
