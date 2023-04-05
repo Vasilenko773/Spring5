@@ -7,6 +7,7 @@ import com.example.spring5.jpa.repository.CrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -18,16 +19,16 @@ public class CompanyService {
     private final CrudRepository<Integer, Company> companyRepository;
     private final ApplicationEventPublisher eventPublisher;
 
-
+    @Transactional
     public Optional<CompanyReadDto> findById(Integer id) {
-       return companyRepository.findById(id).map(company -> {
-           eventPublisher.publishEvent(new EntityEvent(company, AccessType.READ));
-           return new CompanyReadDto(company.getId());
-       });
+        return companyRepository.findById(id).map(company -> {
+            eventPublisher.publishEvent(new EntityEvent(company, AccessType.READ));
+            return new CompanyReadDto(company.getId());
+        });
 
     }
 
     public void delete(Company entity) {
-       companyRepository.delete(entity);
+        companyRepository.delete(entity);
     }
 }
