@@ -3,9 +3,9 @@ package com.example.spring5.jpa.company;
 import com.example.spring5.jpa.company.dto.CompanyReadDto;
 import com.example.spring5.core.lisner.entity.AccessType;
 import com.example.spring5.core.lisner.entity.EntityEvent;
-import com.example.spring5.jpa.repository.CrudRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,10 +13,9 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-
 public class CompanyService {
 
-    private final CrudRepository<Integer, Company> companyRepository;
+    private final CompanyRepository companyRepository;
     private final ApplicationEventPublisher eventPublisher;
 
     @Transactional

@@ -20,13 +20,4 @@ public class ApplicationConfiguration {
         return new ConnectionPool("3-url", "thirdName", "password3");
     }
 
-    @Bean
-    @Profile("web")
-    public CompanyRepository company2() {
-        ConnectionPool connectionPool = pool3();
-        ConnectionPool connectionPool1 = pool3();
-        ConnectionPool connectionPool2 = pool3();
-        return new CompanyRepository(pool3());
-    }
-
 }

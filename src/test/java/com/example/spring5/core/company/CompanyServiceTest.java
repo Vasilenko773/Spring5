@@ -1,10 +1,10 @@
 package com.example.spring5.core.company;
 
 import com.example.spring5.jpa.company.Company;
+import com.example.spring5.jpa.company.CompanyRepository;
 import com.example.spring5.jpa.company.CompanyService;
 import com.example.spring5.jpa.company.dto.CompanyReadDto;
 import com.example.spring5.core.lisner.entity.EntityEvent;
-import com.example.spring5.jpa.repository.CrudRepository;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -12,6 +12,7 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.data.repository.CrudRepository;
 
 import java.util.HashMap;
 import java.util.Optional;
@@ -26,7 +27,7 @@ class CompanyServiceTest {
     private static final Integer COMPANY_ID = 1;
 
     @Mock
-    private CrudRepository<Integer, Company> companyRepository;
+    private CompanyRepository companyRepository;
     @Mock
     private ApplicationEventPublisher eventPublisher;
     @InjectMocks
