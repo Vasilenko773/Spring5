@@ -1,14 +1,16 @@
 package com.example.spring5.jpa.company;
 
-import org.springframework.data.repository.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.List;
 import java.util.Optional;
 
 
+public interface CompanyRepository extends JpaRepository<Company, Integer> {
 
-public interface CompanyRepository extends  Repository<Company, Integer> {
+    Optional<Company> findByName(String name);
 
-    Optional<Company> findById(Integer id) ;
+    List<Company> findAllByNameContainingIgnoreCase(String fragment);
 
-    void delete(Company entity) ;
+
 }
