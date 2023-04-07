@@ -13,7 +13,7 @@ public class CompanyRepositoryTest {
 
     @Test
     public void test() {
-        companyRepository.findByName("Google");
+        companyRepository.findByName("google");
         companyRepository.findAllByNameContainingIgnoreCase("a");
 
     }

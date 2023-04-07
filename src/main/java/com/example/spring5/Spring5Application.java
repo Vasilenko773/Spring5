@@ -1,12 +1,10 @@
 package com.example.spring5;
 
 import com.example.spring5.jpa.company.CompanyRepository;
-import jakarta.persistence.NamedQuery;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.ConfigurableApplicationContext;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 
 @SpringBootApplication
 @ConfigurationPropertiesScan
