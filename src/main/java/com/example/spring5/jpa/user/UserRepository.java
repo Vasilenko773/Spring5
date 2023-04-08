@@ -1,6 +1,7 @@
 package com.example.spring5.jpa.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.Repository;
 
@@ -12,4 +13,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @Query("select u from User  u where u.firstname like %:firstname% and u.lastname like %:lastname%")
     List<User> findAllBy(String firstname, String lastname);
+
+    @Modifying
+    @Query("update User u set u.role = :role where u.id in :ids")
+    int updateRole(Role role, Integer... ids);
+
 }

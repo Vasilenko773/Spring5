@@ -3,15 +3,13 @@ package com.example.spring5.jpa.user;
 import com.example.spring5.jpa.BaseEntity;
 import com.example.spring5.jpa.company.Company;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDate;
 
 @Entity
-@Data
+@Getter
+@Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,10 +32,11 @@ public class User implements BaseEntity<Integer> {
     @JoinColumn(name = "company_id")
     private Company company;
 
+
+
 }
 
-enum Role {
+ enum Role {
 
     USER, ADMIN
 }
-
