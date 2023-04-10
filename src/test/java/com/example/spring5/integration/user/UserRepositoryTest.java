@@ -47,14 +47,14 @@ public class UserRepositoryTest {
     void testPageable() {
         PageRequest id = PageRequest.of(0, 1, Sort.by("id"));
         var slice = userRepository.findAllBy(id);
+
         System.out.println("------");
-        System.out.println(slice.getTotalPages());
+        slice.forEach(i -> System.out.println(i.getCompany().getName()));
         System.out.println("------");
-        slice.forEach(System.out::println);
-      while (slice.hasNext()) {
-          slice = userRepository.findAllBy(slice.nextPageable());
-          slice.forEach(System.out::println);
-      }
+        while (slice.hasNext()) {
+            slice = userRepository.findAllBy(slice.nextPageable());
+            slice.forEach(i -> System.out.println(i.getCompany().getName()));
+        }
 
     }
 }

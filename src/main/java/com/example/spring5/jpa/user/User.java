@@ -7,6 +7,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+@NamedEntityGraph(name = "User.company", attributeNodes = @NamedAttributeNode("company"))
 @Entity
 @Getter
 @Setter
