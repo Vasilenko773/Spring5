@@ -3,6 +3,7 @@ package com.example.spring5.integration.user;
 import com.example.spring5.jpa.user.User;
 import com.example.spring5.jpa.user.UserRepository;
 import com.example.spring5.jpa.user.dto.PersonalInfo;
+import com.example.spring5.jpa.user.dto.UserFilter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,5 +63,12 @@ public class UserRepositoryTest {
     void CheckProjection() {
         var users = userRepository.findAllByCompanyId(1);
       users.forEach(System.out::println);
+    }
+
+    @Test
+    void CheckCustomImplemenation() {
+        UserFilter filter = new UserFilter(null, "%es%", null);
+        List<User> allByFilter = userRepository.findAllByFilter(filter);
+        allByFilter.forEach(System.out::println);
     }
 }
