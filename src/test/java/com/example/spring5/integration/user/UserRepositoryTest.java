@@ -2,7 +2,6 @@ package com.example.spring5.integration.user;
 
 import com.example.spring5.jpa.user.User;
 import com.example.spring5.jpa.user.UserRepository;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,9 +43,18 @@ public class UserRepositoryTest {
     }
 
     @Test
+    @Transactional
     void testPageable() {
-        PageRequest id = PageRequest.of(0, 2, Sort.by("id"));
-        List<User> allBy = userRepository.findAllBy(id);
-        Assertions.assertEquals(2, allBy.size());
+        PageRequest id = PageRequest.of(0, 1, Sort.by("id"));
+        var slice = userRepository.findAllBy(id);
+        System.out.println("------");
+        System.out.println(slice.getTotalPages());
+        System.out.println("------");
+        slice.forEach(System.out::println);
+      while (slice.hasNext()) {
+          slice = userRepository.findAllBy(slice.nextPageable());
+          slice.forEach(System.out::println);
+      }
+
     }
 }

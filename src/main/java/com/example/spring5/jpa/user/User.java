@@ -14,6 +14,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "users")
+@ToString
 public class User implements BaseEntity<Integer> {
 
     @Id

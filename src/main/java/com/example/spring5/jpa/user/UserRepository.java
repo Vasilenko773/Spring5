@@ -1,6 +1,8 @@
 package com.example.spring5.jpa.user;
 
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -26,5 +28,5 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     List<User> findFirst3ByBirthDateBefore(LocalDate date, Sort sort);
 
-    List<User> findAllBy(Pageable pageable);
+    Page<User> findAllBy(Pageable pageable);
 }
