@@ -1,5 +1,7 @@
 package com.example.spring5.jpa.user;
 
+import com.example.spring5.jpa.user.dto.PersonalInfo;
+import com.example.spring5.jpa.user.dto.PersonalInfo2;
 import jakarta.persistence.LockModeType;
 import jakarta.persistence.QueryHint;
 import org.springframework.data.domain.Page;
@@ -32,4 +34,9 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
     @EntityGraph(attributePaths = {"company"})
     Page<User> findAllBy(Pageable pageable);
+
+//    List<PersonalInfo> findAllByCompanyId(Integer companyId);
+
+    @Query(value = "SELECT firstName, lastName, birth_date birthDate FROM USERS WHERE company_id = :companyId", nativeQuery = true)
+    List<PersonalInfo2> findAllByCompanyId(Integer companyId);
 }
