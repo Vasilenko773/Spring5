@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 
 @SpringBootTest
+@Transactional
 public class UserRepositoryTest {
 
     @Autowired
@@ -26,7 +27,6 @@ public class UserRepositoryTest {
     }
 
     @Test
-    @Transactional
     void checkUpdate() {
         User referenceById = userRepository.getReferenceById(1);
         int resultCount = userRepository.updateRole(referenceById.getRole(), 3);
