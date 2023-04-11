@@ -6,14 +6,17 @@ import jakarta.persistence.criteria.CriteriaBuilder;
 import jakarta.persistence.criteria.CriteriaQuery;
 import jakarta.persistence.criteria.Predicate;
 import lombok.RequiredArgsConstructor;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class FilterUserRepositoryImpl implements FilterUserRepository {
 
    private final EntityManager entityManager;
+   private final JdbcTemplate jdbcTemplate;
 
     @Override
     public List<User> findAllByFilter(UserFilter userFilter) {
@@ -34,5 +37,14 @@ public class FilterUserRepositoryImpl implements FilterUserRepository {
         criteria.where(predicates.toArray(Predicate[]::new));
 
         return entityManager.createQuery(criteria).getResultList();
+    }
+
+    @Override
+    public void updateCompanyAndRole(List<User> users) {
+        List<Object[]> params = users.stream()
+                .map(u -> new Object[]{u.getCompany().getId(), u.getRole().name(), u.getId()})
+                .toList();
+        jdbcTemplate.batchUpdate("update users set company_id = ?, role =? where id = ?", params);
+
     }
 }

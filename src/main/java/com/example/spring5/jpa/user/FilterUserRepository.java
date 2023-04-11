@@ -7,4 +7,6 @@ import java.util.List;
 public interface FilterUserRepository {
 
     List<User> findAllByFilter(UserFilter userFilter);
+
+    void updateCompanyAndRole(List<User> users);
 }

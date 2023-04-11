@@ -63,7 +63,7 @@ public class UserRepositoryTest {
     @Test
     void CheckProjection() {
         var users = userRepository.findAllByCompanyId(1);
-      users.forEach(System.out::println);
+        users.forEach(System.out::println);
     }
 
     @Test
@@ -80,7 +80,12 @@ public class UserRepositoryTest {
         user.setBirthDate(user.getBirthDate().plusDays(1));
         userRepository.flush();
         System.out.println();
+    }
 
-
+    @Test
+    void checkBatch() {
+        List<User> all = userRepository.findAll();
+        userRepository.updateCompanyAndRole(all);
+        System.out.println();
     }
 }
