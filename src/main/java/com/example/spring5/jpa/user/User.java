@@ -1,9 +1,12 @@
 package com.example.spring5.jpa.user;
 
+import com.example.spring5.core.annotation.Auditing;
 import com.example.spring5.jpa.BaseEntity;
 import com.example.spring5.jpa.company.Company;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.envers.Audited;
+import org.hibernate.envers.RelationTargetAuditMode;
 
 import java.time.LocalDate;
 
@@ -16,6 +19,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Table(name = "users")
 @ToString
+@Audited(targetAuditMode = RelationTargetAuditMode.NOT_AUDITED)
 public class User extends AuditingEntity<Integer>{
 
     @Id

@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
@@ -73,6 +74,7 @@ public class UserRepositoryTest {
     }
 
     @Test
+    @Commit
     void checkAuditing() {
         User user = userRepository.findById(1).get();
         user.setBirthDate(user.getBirthDate().plusDays(1));
