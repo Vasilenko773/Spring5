@@ -71,4 +71,14 @@ public class UserRepositoryTest {
         List<User> allByFilter = userRepository.findAllByFilter(filter);
         allByFilter.forEach(System.out::println);
     }
+
+    @Test
+    void checkAuditing() {
+        User user = userRepository.findById(1).get();
+        user.setBirthDate(user.getBirthDate().plusDays(1));
+        userRepository.flush();
+        System.out.println();
+
+
+    }
 }

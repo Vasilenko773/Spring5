@@ -16,7 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @Table(name = "users")
 @ToString
-public class User implements BaseEntity<Integer> {
+public class User extends AuditingEntity<Integer>{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
