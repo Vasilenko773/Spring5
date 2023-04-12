@@ -1,25 +1,21 @@
 package com.example.spring5.integration.user;
 
+import com.example.spring5.integration.IntegrationTestBase;
 import com.example.spring5.jpa.user.User;
 import com.example.spring5.jpa.user.UserRepository;
-import com.example.spring5.jpa.user.dto.PersonalInfo;
 import com.example.spring5.jpa.user.dto.UserFilter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.test.annotation.Commit;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
-@SpringBootTest
-@Transactional
-public class UserRepositoryTest {
+public class UserRepositoryTest extends IntegrationTestBase {
 
     @Autowired
     private UserRepository userRepository;
@@ -74,7 +70,6 @@ public class UserRepositoryTest {
     }
 
     @Test
-    @Commit
     void checkAuditing() {
         User user = userRepository.findById(1).get();
         user.setBirthDate(user.getBirthDate().plusDays(1));

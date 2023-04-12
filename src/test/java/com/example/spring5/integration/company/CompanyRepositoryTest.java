@@ -1,12 +1,11 @@
 package com.example.spring5.integration.company;
 
+import com.example.spring5.integration.IntegrationTestBase;
 import com.example.spring5.jpa.company.CompanyRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
-public class CompanyRepositoryTest {
+public class CompanyRepositoryTest extends IntegrationTestBase {
 
     @Autowired
     private CompanyRepository companyRepository;
