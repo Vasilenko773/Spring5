@@ -14,6 +14,5 @@ public class Spring5Application {
         ConfigurableApplicationContext run = SpringApplication.run(Spring5Application.class, args);
         CompanyRepository bean = run.getBean(CompanyRepository.class);
         bean.findById(1);
-
     }
 }
