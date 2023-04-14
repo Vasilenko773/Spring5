@@ -12,4 +12,8 @@ public class UserService {
     public User userById(Integer id) {
         return userRepository.findById(id).orElseThrow(NullPointerException::new);
     }
+
+    public void save(User user) {
+        userRepository.save(user);
+    }
 }
