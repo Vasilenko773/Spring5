@@ -9,6 +9,7 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Map;
 import java.util.Optional;
 
 @Service
@@ -22,7 +23,7 @@ public class CompanyService {
     public Optional<CompanyReadDto> findById(Integer id) {
         return companyRepository.findById(id).map(company -> {
             eventPublisher.publishEvent(new EntityEvent(company, AccessType.READ));
-            return new CompanyReadDto(company.getId());
+            return new CompanyReadDto(company.getId(), "", Map.of());
         });
 
     }
