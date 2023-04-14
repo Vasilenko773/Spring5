@@ -1,4 +1,7 @@
 package com.example.spring5.jpa.company.dto;
 
-public record CompanyReadDto(int id) {
+import java.util.Map;
+
+
+public record CompanyReadDto(int id, String name, Map<String, String> locales) {
 }

@@ -1,5 +1,8 @@
 #
 spring:
+  mvc:
+    format:
+      date: iso
   datasource:
     username: test
     password: test
@@ -8,3 +11,4 @@ spring:
     properties:
         hbm2ddl:
           auto: validate
+

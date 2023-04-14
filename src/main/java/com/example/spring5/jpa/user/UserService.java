@@ -3,6 +3,8 @@ package com.example.spring5.jpa.user;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class UserService {
@@ -15,5 +17,9 @@ public class UserService {
 
     public void save(User user) {
         userRepository.save(user);
+    }
+
+    public List<User> users() {
+        return userRepository.findAll();
     }
 }

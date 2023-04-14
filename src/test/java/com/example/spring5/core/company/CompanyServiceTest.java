@@ -15,6 +15,7 @@ import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -39,7 +40,7 @@ class CompanyServiceTest {
                 .when(companyRepository).findById(COMPANY_ID);
 
         Optional<CompanyReadDto> byId = companyService.findById(COMPANY_ID);
-        var expected = Optional.of(new CompanyReadDto(COMPANY_ID));
+        var expected = Optional.of(new CompanyReadDto(COMPANY_ID, "", Map.of()));
 
         assertTrue(byId.isPresent());
         byId.ifPresent(actual -> assertEquals(expected, byId));
