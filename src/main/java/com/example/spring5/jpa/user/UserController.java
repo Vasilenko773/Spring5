@@ -26,9 +26,4 @@ public class UserController {
     public List<User> user() {
         return userService.users();
     }
-
-    @ExceptionHandler(Exception.class)
-    public String handler(Exception exception) {
-        return "Error " + exception.getCause();
-    }
 }
