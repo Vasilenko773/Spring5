@@ -3,6 +3,7 @@ package com.example.spring5.jpa.user;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -13,7 +14,7 @@ public class UserController {
 
     @GetMapping("/{id}")
     public User user(@PathVariable Integer id) {
-       return userService.userById(id);
+        return userService.userById(id);
     }
 
     @PostMapping("/")
@@ -24,5 +25,10 @@ public class UserController {
     @GetMapping
     public List<User> user() {
         return userService.users();
+    }
+
+    @ExceptionHandler(Exception.class)
+    public String handler(Exception exception) {
+        return "Error " + exception.getCause();
     }
 }
