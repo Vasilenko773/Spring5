@@ -37,6 +37,7 @@ public class User extends AuditingEntity<Integer>{
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id")
     private Company company;
+    private String image;
 
 
 
