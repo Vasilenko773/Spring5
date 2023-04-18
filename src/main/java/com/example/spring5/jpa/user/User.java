@@ -7,7 +7,12 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.RelationTargetAuditMode;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.web.authentication.AuthenticationFilter;
 
+import java.security.Principal;
 import java.time.LocalDate;
 
 @NamedEntityGraph(name = "User.company", attributeNodes = @NamedAttributeNode("company"))
@@ -38,9 +43,6 @@ public class User extends AuditingEntity<Integer>{
     @JoinColumn(name = "company_id")
     private Company company;
     private String image;
-
-
-
 }
 
  enum Role {
