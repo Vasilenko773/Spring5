@@ -1,18 +1,12 @@
 package com.example.spring5.jpa.user;
 
-import com.example.spring5.core.annotation.Auditing;
-import com.example.spring5.jpa.BaseEntity;
 import com.example.spring5.jpa.company.Company;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.RelationTargetAuditMode;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.core.context.SecurityContext;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.web.authentication.AuthenticationFilter;
+import org.springframework.security.core.GrantedAuthority;
 
-import java.security.Principal;
 import java.time.LocalDate;
 
 @NamedEntityGraph(name = "User.company", attributeNodes = @NamedAttributeNode("company"))
@@ -43,9 +37,15 @@ public class User extends AuditingEntity<Integer>{
     @JoinColumn(name = "company_id")
     private Company company;
     private String image;
+    private String password;
 }
 
- enum Role {
+ enum Role implements GrantedAuthority {
 
-    USER, ADMIN
-}
+    USER, ADMIN;
+
+     @Override
+     public String getAuthority() {
+         return name();
+     }
+ }

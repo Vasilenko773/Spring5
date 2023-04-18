@@ -1,15 +1,12 @@
 package com.example.spring5.jpa.user;
 
-import com.example.spring5.jpa.user.dto.PersonalInfo;
 import com.example.spring5.jpa.user.dto.PersonalInfo2;
 import jakarta.persistence.LockModeType;
 import jakarta.persistence.QueryHint;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.*;
-import org.springframework.data.repository.Repository;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -39,4 +36,7 @@ public interface UserRepository extends JpaRepository<User, Integer>, FilterUser
 
     @Query(value = "SELECT firstName, lastName, birth_date birthDate FROM USERS WHERE company_id = :companyId", nativeQuery = true)
     List<PersonalInfo2> findAllByCompanyId(Integer companyId);
+
+
+    Optional<User> findByUsername(String username);
 }
