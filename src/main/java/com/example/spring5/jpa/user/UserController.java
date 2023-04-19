@@ -1,9 +1,9 @@
 package com.example.spring5.jpa.user;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
-import java.net.http.HttpResponse;
 import java.util.List;
 
 @RestController
@@ -18,6 +18,7 @@ public class UserController {
     }
 
     @PostMapping("/")
+    @PreAuthorize("hasAuthority('ADMIN')")
     public void save(@RequestBody User user) {
         userService.save(user);
     }
