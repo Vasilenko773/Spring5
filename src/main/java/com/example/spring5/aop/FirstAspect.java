@@ -1,6 +1,7 @@
 package com.example.spring5.aop;
 
 import lombok.extern.log4j.Log4j2;
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -28,7 +29,9 @@ public class FirstAspect {
     public void anyFindByIdServiceMethod(){};
 
     @Before("anyFindByIdServiceMethod()")
-    public void addLogging() {
-        log.info("Logging advice");
+    public void addLogging(JoinPoint joinPoint) {
+        log.info("Logging advice: " + joinPoint.getTarget().getClass()
+                + " method: "
+                + joinPoint.getSignature().getName());
     }
 }
