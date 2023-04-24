@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.envers.Audited;
 import org.hibernate.envers.RelationTargetAuditMode;
-import org.springframework.security.core.GrantedAuthority;
+//import org.springframework.security.core.GrantedAuthority;
 
 import java.time.LocalDate;
 
@@ -40,12 +40,12 @@ public class User extends AuditingEntity<Integer>{
     private String password;
 }
 
- enum Role implements GrantedAuthority {
+ enum Role  {
 
     USER, ADMIN;
 
-     @Override
-     public String getAuthority() {
-         return name();
-     }
+//     @Override
+//     public String getAuthority() {
+//         return name();
+//     }
  }
